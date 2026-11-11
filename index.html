@@ -17,12 +17,11 @@ main{max-width:900px;margin:auto;padding:16px}.card{background:#fff;border-radiu
 label{font-size:12px;font-weight:600;color:#4b5563;display:block;margin-bottom:5px}input,select,textarea{width:100%;padding:11px;border:1px solid #d1d5db;border-radius:10px;background:#fff;font:inherit}textarea{min-height:80px;resize:vertical}
 .full{grid-column:1/-1}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:700;cursor:pointer}.primary{background:#111827;color:#fff}.light{background:#e5e7eb;color:#111827}.danger{background:#fee2e2;color:#991b1b}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}@media(min-width:600px){.statgrid{grid-template-columns:repeat(4,1fr)}}.stat{padding:14px;background:#f9fafb;border-radius:12px}.stat b{display:block;font-size:20px}.stat span{font-size:12px;color:#6b7280}
 table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:10px 6px;border-bottom:1px solid #e5e7eb;text-align:left;white-space:nowrap}th{color:#6b7280}.scroll{overflow:auto}.profit{color:#047857;font-weight:700}.loss{color:#b91c1c;font-weight:700}.hidden{display:none!important}.muted{color:#6b7280;font-size:13px}.field{background:#f9fafb;padding:10px;border-radius:10px}.field .remove{float:right;border:0;background:none;color:#b91c1c}.check{display:flex;gap:8px;align-items:center}.check input{width:auto}
-
 .chart{height:220px;width:100%;display:block}
 .kpi{font-size:12px;color:#6b7280}.barwrap{display:flex;align-items:end;gap:6px;height:180px;padding:10px 4px;border-bottom:1px solid #e5e7eb}
 .bar{flex:1;min-width:8px;background:#111827;border-radius:5px 5px 0 0;position:relative}.bar.neg{background:#b91c1c}.bar span{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:9px;white-space:nowrap}
 @media(max-width:500px){.barwrap{gap:3px}.bar span{font-size:8px}}
-&/style\>
+</style>
 </head>
 <body>
 <header>
@@ -45,12 +44,10 @@ table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:10px 6px;
 <div class="card"><h3>P&L Overview</h3><div id="pnlChart" class="barwrap"></div><div class="muted" style="margin-top:28px">Each bar = one trade, newest on the right.</div></div>
 <div class="card"><h3>Recent trades</h3><div id="recent" class="scroll"></div></div>
 </section>
-
 <section id="trades" class="page hidden">
 <div class="card"><div class="row"><input id="search" placeholder="Search stock / setup..." style="flex:1;min-width:180px"><select id="typeFilter"><option value="">All types</option><option>Intraday</option><option>Swing</option><option>Position</option></select></div></div>
 <div class="card"><div id="tradeTable" class="scroll"></div></div>
 </section>
-
 <section id="add" class="page hidden">
 <div class="card"><h2 id="formTitle">Add Trade</h2><form id="tradeForm"><div class="grid">
 <div><label>Stock</label><input id="stock" required placeholder="e.g. SAIL"></div>
@@ -67,7 +64,6 @@ table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:10px 6px;
 <div id="customInputs" class="full"></div>
 </div><div class="row" style="margin-top:14px"><button class="btn primary" type="submit">Save Trade</button><button class="btn light" type="button" onclick="showPage('dashboard')">Cancel</button></div></form></div>
 </section>
-
 <section id="settings" class="page hidden">
 <div class="card"><h2>Journal Settings</h2><p class="muted">Your fields are saved on this device. Use Backup regularly.</p><div class="row"><button class="btn light" onclick="exportData()">Export Backup</button><button class="btn light" onclick="document.getElementById('importFile').click()">Restore Backup</button></div></div>
 <div class="card"><h2>Custom Fields</h2><p class="muted">Create your own fields. They will appear in every new trade.</p>
@@ -80,7 +76,6 @@ table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:10px 6px;
 <div class="card"><h3>Backup</h3><div class="row"><button class="btn light" onclick="exportData()">Export JSON</button><button class="btn light" onclick="document.getElementById('importFile').click()">Import JSON</button><input id="importFile" type="file" accept=".json" class="hidden" onchange="importData(event)"></div></div>
 </section>
 </main>
-
 <script>
 const KEY='my_trade_journal_v1';
 let data=JSON.parse(localStorage.getItem(KEY)||'{"trades":[],"fields":[]}');
